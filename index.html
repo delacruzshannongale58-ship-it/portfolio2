@@ -31,6 +31,7 @@ body {
   line-height: 1.6;
 }
 
+/* Floating Fruit Background */
 .leaf {
   position: fixed;
   font-size: 26px;
@@ -49,6 +50,7 @@ body {
 .leaf:nth-child(4){left:75%; animation-delay:2s;}
 .leaf:nth-child(5){left:90%; animation-delay:6s;}
 
+/* iPhone Frame Styling */
 .iphone-frame {
   width: 400px;
   max-width: 95vw;
@@ -96,6 +98,25 @@ h2 {color: var(--cherry-dark); border-bottom: 2px solid var(--pink-light); displ
 #home img { border-radius: 50%; width: 130px; height: 130px; box-shadow: 0 0 25px rgba(255,77,109,0.6); border: 4px solid white; cursor: pointer; animation: floatProfile 4s ease-in-out infinite alternate;}
 @keyframes floatProfile { 0% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } 100% { transform: translateY(0) scale(1); } }
 
+/* Profile Status Bar Styling */
+.profile-sub-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto;
+  padding: 5px 15px;
+  background: rgba(255, 77, 109, 0.1);
+  border-radius: 20px;
+  width: fit-content;
+  font-size: 14px;
+  color: var(--cherry-dark);
+  font-weight: 500;
+}
+.profile-sub-status i { color: var(--strawberry-red); }
+.fa-wifi.pulse { animation: wifi-blink 2s infinite; }
+@keyframes wifi-blink { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+
 .media-gallery { display: flex; overflow-x: auto; gap: 15px; padding: 10px; }
 .media-item { flex: 0 0 auto; text-align: center; transition: transform 0.3s; cursor: pointer; font-family: 'Poppins', sans-serif; }
 .media-item:hover { transform: scale(1.05); }
@@ -105,17 +126,94 @@ h2 {color: var(--cherry-dark); border-bottom: 2px solid var(--pink-light); displ
 button { background: linear-gradient(135deg, var(--pink-light), var(--cherry-dark)); color: white; border: none; border-radius: 12px; padding: 10px 22px; cursor: pointer; font-weight: 600; font-family: 'Poppins', sans-serif; transition: 0.3s; }
 button:hover { transform: scale(1.1); background: linear-gradient(135deg,var(--cherry-dark),var(--strawberry-red)); box-shadow: 0 0 25px var(--strawberry-red); }
 
-.bottom-nav { height: 60px; background: linear-gradient(180deg, #ffb3c6, #ffccd5); border-top: 2px solid #ff99ac; display: flex; justify-content: space-around; align-items: center; position: sticky; bottom: 0; border-radius: 0 0 50px 50px; z-index: 15; }
-.bottom-nav a { text-decoration: none; color: var(--cherry-dark); display: flex; flex-direction: column; align-items: center; font-size: 12px; transition: 0.3s; font-family: 'Poppins', sans-serif; }
-.bottom-nav a i { font-size: 20px; }
-.bottom-nav a:hover { transform: scale(1.2); color: var(--strawberry-red); text-shadow: 0 0 10px var(--strawberry-red); }
+/* CLEANER NAVIGATION BAR */
+.bottom-nav { 
+  height: 70px; 
+  background: rgba(255, 204, 213, 0.95); 
+  backdrop-filter: blur(10px); 
+  border-top: 1px solid rgba(255, 77, 109, 0.2); 
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center; 
+  position: sticky; 
+  bottom: 0; 
+  border-radius: 0 0 50px 50px; 
+  z-index: 15; 
+  padding-bottom: 5px;
+}
+.bottom-nav a { 
+  text-decoration: none; 
+  color: #d6336c; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  flex: 1; 
+  transition: all 0.3s ease; 
+  font-family: 'Poppins', sans-serif; 
+}
+.bottom-nav a i { font-size: 18px; margin-bottom: 4px; }
+.bottom-nav a span { font-size: 10px; font-weight: 500; letter-spacing: 0.3px; }
+.bottom-nav a:hover { transform: translateY(-2px); color: var(--strawberry-red); }
+
+/* CHATBOT STYLING */
+#chat-window {
+  position: absolute;
+  bottom: 75px;
+  right: 10px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1001;
+  border: 1px solid var(--pink-light);
+}
+.chat-header {
+  background: var(--strawberry-red);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff9fa;
+}
+.chat-footer {
+  padding: 10px;
+  display: flex;
+  border-top: 1px solid #eee;
+}
+.chat-footer input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 15px;
+  outline: none;
+}
+.msg {
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  font-size: 14px;
+}
+.msg.ai { background: #eee; align-self: flex-start; border-bottom-left-radius: 2px; }
+.msg.user { background: var(--pink-light); align-self: flex-end; border-bottom-right-radius: 2px; color: var(--cherry-dark); }
 
 footer { text-align: center; margin: 15px 0; font-family: 'Poppins', sans-serif; }
 footer p { font-size: 12px; color: var(--cherry-dark); margin-top: 8px; }
 
 html { scroll-behavior: smooth; }
 
-/* CONTACT DESIGN */
 .contact-cards { display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 15px; width: 100%; }
 .contact-card { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 20px; width: 90%; max-width: 300px; background: linear-gradient(145deg, #ffe0eb, #ffb3c6); border-radius: 20px; box-shadow: 0 5px 15px rgba(255,77,109,0.3); transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
 .contact-card i { font-size: 28px; color: #d6336c; margin-bottom: 5px; }
@@ -142,21 +240,26 @@ html { scroll-behavior: smooth; }
 
   <div class="screen">
     <div class="status-bar">
-      <span>9:41</span>
+      <span id="top-clock">9:41</span>
       <span><i class="fas fa-wifi"></i> <i class="fas fa-battery-three-quarters"></i></span>
     </div>
 
     <div class="portfolio-name">Gale's Portfolio🍒</div>
 
-    <!-- HOME -->
     <section id="home">
-      <img src="p.jpg.jpg" alt="Profile Picture" class="zoom-img">
+      <img src="p.jpg.jpg" alt="Profile Picture" class="zoom-img" onclick="toggleChat()">
+      
+      <div class="profile-sub-status">
+        <span id="profile-clock">00:00</span>
+        <i class="fas fa-wifi pulse"></i>
+        <i class="fas fa-battery-full"></i>
+      </div>
+
       <p>🍓 Creative student passionate about <b>design</b> and <b>technology</b>.</p>
       <p>💻 Skilled in <b>HTML, PHP, MySQL</b> and web design.</p>
       <p>🎨 Using <b>Canva</b> and <b>Figma</b> for digital art.</p>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience">
       <h2>💼 Experience</h2>
       <p><b>OJT — Feb 5–16, 2024</b> | Moises Padilla</p>
@@ -167,7 +270,6 @@ html { scroll-behavior: smooth; }
       </ul>
     </section>
 
-    <!-- MEDIA -->
     <section id="media">
       <h2>📸 Captured Moments</h2>
       <div class="media-gallery">
@@ -184,18 +286,16 @@ html { scroll-behavior: smooth; }
       </div>
     </section>
 
-    <!-- CERTIFICATES -->
     <section id="certificates">
-      <h2>📜 Certificate of Participation</h2>
+      <h2>📜 Certificates</h2>
       <div class="media-gallery">
-        <div class="media-item"><img src="cert1.jpg.heic" class="zoom-img"><p>🏆 Coding Competition Participant</p></div>
-        <div class="media-item"><img src="cert2.jpg.heic" class="zoom-img"><p>🎨 Digital Design Workshop</p></div>
-        <div class="media-item"><img src="cert3.jpg.heic" class="zoom-img"><p>💻 Web Development Training</p></div>
-        <div class="media-item"><img src="cert4.jpg" class="zoom-img"><p>💻 Web Development Training</p></div>
+        <div class="media-item"><img src="cert1.jpg.heic" class="zoom-img"><p>Cisco Networking</p></div>
+        <div class="media-item"><img src="cert2.jpg.heic" class="zoom-img"><p>Innovative Solutions</p></div>
+        <div class="media-item"><img src="cert3.jpg.heic" class="zoom-img"><p>IT Seminar</p></div>
+        <div class="media-item"><img src="cert4.jpg" class="zoom-img"><p>Cisco Certificate</p></div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
       <h2>💡 Skills</h2>
       <ul style="text-align:left;">
@@ -206,17 +306,15 @@ html { scroll-behavior: smooth; }
       </ul>
     </section>
 
-    <!-- LINKS -->
     <section id="links">
       <h2>🔗 My Links</h2>
       <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
         <a href="https://delacruzshannongalewebsite.my.canva.site/portfolio" target="_blank"><button>🍓 Canva Portfolio</button></a>
         <a href="https://www.figma.com/proto/n5v20gpb0RLge3E4tG7b7u/Untitled?node-id=1-4&t=B2CarzcrargfTO5d-1" target="_blank"><button>🍒 Figma Portfolio</button></a>
-        <a href="https://www.figma.com/proto/hzNhyOzMHQycfUor1zFlfm/Untitled?node-id=0-1&t=YL3AaPZ3JtZP5nxr-1" target="_blank"><button>🍉 E-Commerce Figma Design</button></a>
+        <a href="https://www.figma.com/proto/hzNhyOzMHQycfUor1zFlfm/Untitled?node-id=0-1&t=YL3AaPZ3JtZP5nxr-1" target="_blank"><button>🍉 E-Commerce Design</button></a>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h2>📩 Contact Me</h2>
       <div class="contact-cards">
@@ -238,21 +336,108 @@ html { scroll-behavior: smooth; }
         <div class="contact-card">
           <i class="fas fa-file"></i>
           <p>Resume</p>
-          <a href="resume.pdf" download>Download My Resume</a>
+          <a href="resume.pdf.PNG" download="Shannon_Gale_Resume.png">Download My Resume</a>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <div id="chat-window">
+      <div class="chat-header">
+        <span>Gale AI Assistant</span>
+        <span onclick="toggleChat()" style="cursor:pointer">×</span>
+      </div>
+      <div class="chat-content" id="chat-content">
+        <div class="msg ai">Hi! I'm Gale's AI. How can I help you today? 🍒</div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Ask me something...">
+        <button onclick="sendChat()" style="padding: 5px 10px; font-size: 12px; margin-left: 5px;">Send</button>
+      </div>
+    </div>
+
     <footer>
       <p>© 2026 Shannon Gale Dela Cruz 🍒</p>
     </footer>
 
-    <!-- BOTTOM NAVIGATION -->
     <div class="bottom-nav">
       <a href="#home"><i class="fas fa-home"></i><span>Home</span></a>
-      <a href="#experience"><i class="fas fa-briefcase"></i><span>Experience</span></a>
+      <a href="#experience"><i class="fas fa-briefcase"></i><span>Exp</span></a>
       <a href="#media"><i class="fas fa-camera"></i><span>Media</span></a>
-      <a href="#certificates"><i class="fas fa-certificate"></i><span>Certificates</span></a>
+      <a href="#certificates"><i class="fas fa-certificate"></i><span>Cert</span></a>
       <a href="#skills"><i class="fas fa-lightbulb"></i><span>Skills</span></a>
-      <a href="#links"><i class="fas fa-link"></i><span>Links</span></a>
+       <a href="#links"><i class="fas fa-link"></i><span>Links</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Real-Time Clock Update
+function updateClock() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const timeString = hours + ":" + minutes;
+  
+  if(document.getElementById('top-clock')) document.getElementById('top-clock').textContent = timeString;
+  if(document.getElementById('profile-clock')) document.getElementById('profile-clock').textContent = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+function toggleChat() {
+  const window = document.getElementById('chat-window');
+  window.style.display = (window.style.display === 'flex' ? 'none' : 'flex');
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const content = document.getElementById('chat-content');
+  const userText = input.value.trim();
+
+  if (userText) {
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg user';
+    userMsg.textContent = userText;
+    content.appendChild(userMsg);
+    input.value = '';
+
+    setTimeout(() => {
+      const aiMsg = document.createElement('div');
+      aiMsg.className = 'msg ai';
+      const lowerText = userText.toLowerCase();
+      
+      if (lowerText.includes('live') || lowerText.includes('address')) {
+        aiMsg.textContent = "Gale lives in Hda. Sto Domingo, Brgy. Crossing Magallon, Moises Padilla, Negros Occidental. 🍓";
+      } else if (lowerText.includes('name') || lowerText.includes('who')) {
+        aiMsg.textContent = "Her full name is Shannon Gale Dela Cruz. 🍒";
+      } else if (lowerText.includes('age') || lowerText.includes('born')) {
+        aiMsg.textContent = "Gale was born on March 30, 2006, in Tacloban City, Leyte. She is 20 years old! 🎂";
+      } else if (lowerText.includes('parent') || lowerText.includes('father') || lowerText.includes('mother')) {
+        aiMsg.textContent = "Her father is Reynante A. Esanan and her mother is Rolina D. Esanan. 👨‍👩‍👧";
+      } else if (lowerText.includes('height') || lowerText.includes('weight')) {
+        aiMsg.textContent = "Gale is 156cm tall and weighs 45kg. 🍓";
+      } else if (lowerText.includes('religion')) {
+        aiMsg.textContent = "Gale's religion is INC. 🙏";
+      } else if (lowerText.includes('study') || lowerText.includes('college') || lowerText.includes('education')) {
+        aiMsg.textContent = "Gale is a 2nd year BSIT student at CPSU - Moises Padilla Campus. She graduated SHS from La Castellana National High School! 🎓";
+      } else if (lowerText.includes('experience') || lowerText.includes('ojt')) {
+        aiMsg.textContent = "Gale did her OJT in Moises Padilla in Feb 2024. She was also the Project Manager for 'Check U Heart Vendo'! 💼";
+      } else if (lowerText.includes('skill')) {
+        aiMsg.textContent = "She's skilled in HTML, PHP, MySQL, Canva, Figma, and Video Editing! 🎨";
+      } else if (lowerText.includes('portfolio') || lowerText.includes('resume')) {
+        aiMsg.textContent = "You can find her Canva and Figma portfolios in the 'Links' section and download her resume in 'Contact'! 📄";
+      } else if (lowerText.includes('pretty') || lowerText.includes('beautiful')) {
+        aiMsg.textContent = "Yes, she's very pretty! 😊🍒";
+      } else {
+        aiMsg.textContent = "I'm not sure about that, but feel free to explore Gale's portfolio sections! 🍒";
+      }
+      
+      content.appendChild(aiMsg);
+      content.scrollTop = content.scrollHeight;
+    }, 600);
+  }
+}
+</script>
+
+</body>
+</html>
